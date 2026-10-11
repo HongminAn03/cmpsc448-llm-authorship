@@ -1,0 +1,25 @@
+test cap per family: 476
+cross      train=19,906 val=2,538 test=2,380
+in-domain  train=19,906 val=2,538 test=2,380
+wrote C:\Users\hongm\AI_Lab_Vault\Project448\results\rq3_label_audit.csv (60 prompts for manual audit)
+
+=== rq3_cnn_indomain ===
+  [rq3_cnn_indomain] epoch 1  loss 1.5719  val_acc 0.4472  val_f1 0.3714
+  [rq3_cnn_indomain] epoch 2  loss 1.3249  val_acc 0.4819  val_f1 0.4582
+  [rq3_cnn_indomain] epoch 3  loss 1.2402  val_acc 0.4744  val_f1 0.4476
+  [rq3_cnn_indomain] epoch 4  loss 1.1717  val_acc 0.4913  val_f1 0.4800
+  [rq3_cnn_indomain] epoch 5  loss 1.1074  val_acc 0.5063  val_f1 0.4987
+  [rq3_cnn_indomain] epoch 6  loss 1.0311  val_acc 0.5043  val_f1 0.5012
+  [rq3_cnn_indomain] TEST acc 0.5109  macro-F1 0.5072  (222.0s)
+
+=== rq3_cnn_cross ===
+  [rq3_cnn_cross] epoch 1  loss 1.5719  val_acc 0.4472  val_f1 0.3714
+  [rq3_cnn_cross] epoch 2  loss 1.3249  val_acc 0.4819  val_f1 0.4582
+  [rq3_cnn_cross] epoch 3  loss 1.2402  val_acc 0.4744  val_f1 0.4476
+  [rq3_cnn_cross] epoch 4  loss 1.1717  val_acc 0.4913  val_f1 0.4800
+  [rq3_cnn_cross] epoch 5  loss 1.1074  val_acc 0.5063  val_f1 0.4987
+  [rq3_cnn_cross] epoch 6  loss 1.0311  val_acc 0.5043  val_f1 0.5012
+  [rq3_cnn_cross] TEST acc 0.4492  macro-F1 0.4507  (228.3s)
+
+=== rq3_lstm_indomain ===
+Terminated

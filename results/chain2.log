@@ -1,0 +1,30 @@
+C:\Users\hongm\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\linear_model\_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+tfidf input   acc 0.2170 macro-F1 0.2167 (108,109 features)
+C:\Users\hongm\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\linear_model\_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+tfidf output  acc 0.5137 macro-F1 0.5140 (120,000 features)
+C:\Users\hongm\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\linear_model\_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+tfidf both    acc 0.4997 macro-F1 0.4997 (120,000 features)
+wrote results/baselines.json
+
+=== win_cnn_40 (first 40 tokens) ===
+  [win_cnn_40] epoch 1  loss 1.4983  val_acc 0.4283  val_f1 0.3909
+  [win_cnn_40] epoch 2  loss 1.3129  val_acc 0.4460  val_f1 0.4300
+  [win_cnn_40] epoch 3  loss 1.2264  val_acc 0.4497  val_f1 0.4307
+  [win_cnn_40] epoch 4  loss 1.1476  val_acc 0.4703  val_f1 0.4510
+  [win_cnn_40] epoch 5  loss 1.0550  val_acc 0.4680  val_f1 0.4727
+  [win_cnn_40] epoch 6  loss 0.9365  val_acc 0.4677  val_f1 0.4712
+  [win_cnn_40] TEST acc 0.4617  macro-F1 0.4667  (212.4s)
+
+=== win_cnn_80 (first 80 tokens) ===
+  [win_cnn_80] epoch 1  loss 1.5263  val_acc 0.4450  val_f1 0.4290
+  [win_cnn_80] epoch 2  loss 1.3150  val_acc 0.4307  val_f1 0.3965
+  [win_cnn_80] epoch 3  loss 1.2356  val_acc 0.4837  val_f1 0.4783
+  [win_cnn_80] epoch 4  loss 1.1566  val_acc 0.4880  val_f1 0.4783
+  [win_cnn_80] epoch 5  loss 1.0757  val_acc 0.4763  val_f1 0.4837
+  [win_cnn_80] epoch 6  loss 0.9778  val_acc 0.4867  val_f1 0.4767
+  [win_cnn_80] TEST acc 0.4880  macro-F1 0.4961  (242.7s)
+
+=== win_cnn_160 (first 160 tokens) ===

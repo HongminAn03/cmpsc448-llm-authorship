@@ -1,0 +1,13 @@
+test cap per family: 476
+cross      train=19,906 val=2,538 test=2,380
+in-domain  train=19,906 val=2,538 test=2,380
+wrote C:\Users\hongm\AI_Lab_Vault\Project448\results\rq3_label_audit.csv (60 prompts for manual audit)
+
+=== rq3_cnn_indomain ===
+  [rq3_cnn_indomain] cached: acc 0.5109
+
+=== rq3_cnn_cross ===
+  [rq3_cnn_cross] cached: acc 0.4492
+
+=== rq3_lstm_indomain ===
+  [rq3_lstm_indomain] epoch 1  loss 1.5105  val_acc 0.4267  val_f1 0.3946

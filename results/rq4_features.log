@@ -1,0 +1,24 @@
+profiling 24,000 training responses
+
+top 12 most family-discriminative features (one-way ANOVA F):
+  phrase_hope_helps      F=    566.3  p=0.00e+00
+  any_markdown           F=    346.0  p=4.21e-290
+  phrase_certainly       F=    291.8  p=1.98e-245
+  phrase_important_note  F=    238.4  p=4.21e-201
+  type_token_ratio       F=    216.3  p=1.09e-182
+  blank_line_frac        F=    181.1  p=3.77e-153
+  md_bullet              F=    161.5  p=1.11e-136
+  words                  F=    160.7  p=6.06e-136
+  chars                  F=    142.5  p=1.29e-120
+  tokens                 F=    119.0  p=1.09e-100
+  md_numbered            F=    104.4  p=2.43e-88
+  md_bold                F=     96.6  p=1.06e-81
+
+headline per-family means:
+           tokens  type_token_ratio  any_markdown  md_bullet  mean_sentence_words  phrase_as_an_ai
+llm_name                                                                                          
+GPT       252.583             0.622         0.242      0.947               17.448            0.039
+Claude    203.914             0.624         0.422      2.339               19.094            0.019
+Llama     281.604             0.535         0.165      0.857               18.355            0.005
+Mistral   263.109             0.564         0.180      0.766               19.353            0.004
+Vicuna    217.159             0.587         0.159      0.561               19.251            0.051

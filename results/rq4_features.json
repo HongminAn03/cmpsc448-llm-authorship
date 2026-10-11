@@ -1,0 +1,317 @@
+{
+  "n_profiled": 24000,
+  "per_family_means": {
+    "GPT": {
+      "chars": 1204.3633333333332,
+      "tokens": 252.58333333333334,
+      "words": 189.139375,
+      "type_token_ratio": 0.6215848590377278,
+      "mean_word_len": 4.79742989443727,
+      "mean_sentence_words": 17.448376163147007,
+      "n_lines": 14.788958333333333,
+      "blank_line_frac": 0.2333887989975416,
+      "md_bold": 0.8542708333333333,
+      "md_header": 0.21333333333333335,
+      "md_bullet": 0.9472916666666666,
+      "md_numbered": 2.221875,
+      "code_fence": 0.19520833333333334,
+      "any_markdown": 0.24208333333333334,
+      "exclaim": 0.308125,
+      "question": 0.246875,
+      "comma_per_word": 0.06456803120435914,
+      "colon_per_word": 0.016457403458935378,
+      "emdash": 0.022083333333333333,
+      "uppercase_frac": 0.02907828335314647,
+      "phrase_as_an_ai": 0.03854166666666667,
+      "phrase_i_cannot": 0.041041666666666664,
+      "phrase_certainly": 0.09041666666666667,
+      "phrase_hope_helps": 0.008125,
+      "phrase_important_note": 0.15125
+    },
+    "Claude": {
+      "chars": 981.4508333333333,
+      "tokens": 203.91416666666666,
+      "words": 156.99541666666667,
+      "type_token_ratio": 0.6237517007422528,
+      "mean_word_len": 4.818030597230758,
+      "mean_sentence_words": 19.093956793151783,
+      "n_lines": 14.582916666666666,
+      "blank_line_frac": 0.2890340837299837,
+      "md_bold": 0.021041666666666667,
+      "md_header": 0.08604166666666667,
+      "md_bullet": 2.339375,
+      "md_numbered": 0.9666666666666667,
+      "code_fence": 0.15229166666666666,
+      "any_markdown": 0.4222916666666667,
+      "exclaim": 0.369375,
+      "question": 0.22729166666666667,
+      "comma_per_word": 0.059950429140117695,
+      "colon_per_word": 0.01853042576073714,
+      "emdash": 0.00625,
+      "uppercase_frac": 0.028941976158168098,
+      "phrase_as_an_ai": 0.019375,
+      "phrase_i_cannot": 0.041875,
+      "phrase_certainly": 0.021666666666666667,
+      "phrase_hope_helps": 0.19604166666666667,
+      "phrase_important_note": 0.005208333333333333
+    },
+    "Llama": {
+      "chars": 1340.593125,
+      "tokens": 281.6041666666667,
+      "words": 218.35166666666666,
+      "type_token_ratio": 0.5345604767522238,
+      "mean_word_len": 4.655129358067814,
+      "mean_sentence_words": 18.355335416988517,
+      "n_lines": 14.301875,
+      "blank_line_frac": 0.24170090682907586,
+      "md_bold": 0.03229166666666667,
+      "md_header": 0.11041666666666666,
+      "md_bullet": 0.8566666666666667,
+      "md_numbered": 2.715,
+      "code_fence": 0.16354166666666667,
+      "any_markdown": 0.165,
+      "exclaim": 0.5141666666666667,
+      "question": 0.38416666666666666,
+      "comma_per_word": 0.05916111309479923,
+      "colon_per_word": 0.018099759310419017,
+      "emdash": 0.00125,
+      "uppercase_frac": 0.027620754409911043,
+      "phrase_as_an_ai": 0.004583333333333333,
+      "phrase_i_cannot": 0.06458333333333334,
+      "phrase_certainly": 0.209375,
+      "phrase_hope_helps": 0.049166666666666664,
+      "phrase_important_note": 0.19791666666666666
+    },
+    "Mistral": {
+      "chars": 1226.3677083333334,
+      "tokens": 263.1091666666667,
+      "words": 197.92395833333333,
+      "type_token_ratio": 0.5640981145864625,
+      "mean_word_len": 4.7289346924168205,
+      "mean_sentence_words": 19.35314405846232,
+      "n_lines": 13.563958333333334,
+      "blank_line_frac": 0.22431254072713339,
+      "md_bold": 0.16302083333333334,
+      "md_header": 0.11083333333333334,
+      "md_bullet": 0.76625,
+      "md_numbered": 2.04375,
+      "code_fence": 0.18322916666666667,
+      "any_markdown": 0.18,
+      "exclaim": 0.3097916666666667,
+      "question": 0.2708333333333333,
+      "comma_per_word": 0.096312600927661,
+      "colon_per_word": 0.015923484674216584,
+      "emdash": 0.004166666666666667,
+      "uppercase_frac": 0.02655964760467155,
+      "phrase_as_an_ai": 0.0035416666666666665,
+      "phrase_i_cannot": 0.026041666666666668,
+      "phrase_certainly": 0.0875,
+      "phrase_hope_helps": 0.03666666666666667,
+      "phrase_important_note": 0.16416666666666666
+    },
+    "Vicuna": {
+      "chars": 1027.136875,
+      "tokens": 217.15895833333335,
+      "words": 166.39125,
+      "type_token_ratio": 0.5865772363450638,
+      "mean_word_len": 5.213978492683498,
+      "mean_sentence_words": 19.250635860356706,
+      "n_lines": 11.299791666666666,
+      "blank_line_frac": 0.1919040428740397,
+      "md_bold": 0.05229166666666667,
+      "md_header": 0.08520833333333333,
+      "md_bullet": 0.560625,
+      "md_numbered": 1.9829166666666667,
+      "code_fence": 0.15989583333333332,
+      "any_markdown": 0.15895833333333334,
+      "exclaim": 0.21979166666666666,
+      "question": 0.20270833333333332,
+      "comma_per_word": 0.07143665585869328,
+      "colon_per_word": 0.01707028081321879,
+      "emdash": 0.004583333333333333,
+      "uppercase_frac": 0.02834438807293542,
+      "phrase_as_an_ai": 0.050833333333333335,
+      "phrase_i_cannot": 0.03145833333333333,
+      "phrase_certainly": 0.06041666666666667,
+      "phrase_hope_helps": 0.010208333333333333,
+      "phrase_important_note": 0.14958333333333335
+    }
+  },
+  "discriminative_ranking": [
+    {
+      "feature": "phrase_hope_helps",
+      "f_stat": 566.2561095657954,
+      "p_value": 0.0,
+      "range_across_families": 0.18791666666666668,
+      "relative_range": 3.1297709923664128
+    },
+    {
+      "feature": "any_markdown",
+      "f_stat": 346.0101869162428,
+      "p_value": 4.206575690918144e-290,
+      "range_across_families": 0.2633333333333333,
+      "relative_range": 1.1269614835948643
+    },
+    {
+      "feature": "phrase_certainly",
+      "f_stat": 291.75920101472417,
+      "p_value": 1.982915013424911e-245,
+      "range_across_families": 0.18770833333333334,
+      "relative_range": 1.9995561473590768
+    },
+    {
+      "feature": "phrase_important_note",
+      "f_stat": 238.370197516472,
+      "p_value": 4.211198373959812e-201,
+      "range_across_families": 0.19270833333333331,
+      "relative_range": 1.4421577798565635
+    },
+    {
+      "feature": "type_token_ratio",
+      "f_stat": 216.32045023932002,
+      "p_value": 1.0882501824083608e-182,
+      "range_across_families": 0.08919122399002899,
+      "relative_range": 0.15217372614914265
+    },
+    {
+      "feature": "blank_line_frac",
+      "f_stat": 181.09601918932276,
+      "p_value": 3.774453756441953e-153,
+      "range_across_families": 0.09713004085594398,
+      "relative_range": 0.41144928642952033
+    },
+    {
+      "feature": "md_bullet",
+      "f_stat": 161.5352534754227,
+      "p_value": 1.1149826161965044e-136,
+      "range_across_families": 1.77875,
+      "relative_range": 1.625852153711391
+    },
+    {
+      "feature": "words",
+      "f_stat": 160.66346042909794,
+      "p_value": 6.0591613812590574e-136,
+      "range_across_families": 61.35624999999999,
+      "relative_range": 0.33029791074879633
+    },
+    {
+      "feature": "chars",
+      "f_stat": 142.50957078963359,
+      "p_value": 1.2925099764802023e-120,
+      "range_across_families": 359.1422916666668,
+      "relative_range": 0.31068145971227873
+    },
+    {
+      "feature": "tokens",
+      "f_stat": 118.98081315730592,
+      "p_value": 1.086301181577683e-100,
+      "range_across_families": 77.69000000000003,
+      "relative_range": 0.3188276684606737
+    },
+    {
+      "feature": "md_numbered",
+      "f_stat": 104.43264677120843,
+      "p_value": 2.4320397408552614e-88,
+      "range_across_families": 1.748333333333333,
+      "relative_range": 0.8803105003671456
+    },
+    {
+      "feature": "md_bold",
+      "f_stat": 96.62370553969723,
+      "p_value": 1.0565962648828224e-81,
+      "range_across_families": 0.8332291666666667,
+      "relative_range": 3.710111317254175
+    },
+    {
+      "feature": "phrase_as_an_ai",
+      "f_stat": 93.2116608363365,
+      "p_value": 8.43571160724238e-79,
+      "range_across_families": 0.04729166666666667,
+      "relative_range": 2.023172905525847
+    },
+    {
+      "feature": "exclaim",
+      "f_stat": 44.761820600831534,
+      "p_value": 1.653047589755817e-37,
+      "range_across_families": 0.294375,
+      "relative_range": 0.855119825708061
+    },
+    {
+      "feature": "n_lines",
+      "f_stat": 39.21171930733868,
+      "p_value": 8.894486684160171e-33,
+      "range_across_families": 3.4891666666666676,
+      "relative_range": 0.2545443492005594
+    },
+    {
+      "feature": "phrase_i_cannot",
+      "f_stat": 26.717963376577284,
+      "p_value": 3.7895791948109815e-22,
+      "range_across_families": 0.03854166666666667,
+      "relative_range": 0.9400406504065041
+    },
+    {
+      "feature": "emdash",
+      "f_stat": 18.822764890080318,
+      "p_value": 1.8286253416544618e-15,
+      "range_across_families": 0.020833333333333332,
+      "relative_range": 2.7173913043478257
+    },
+    {
+      "feature": "question",
+      "f_stat": 16.62846234833497,
+      "p_value": 1.2890324401393377e-13,
+      "range_across_families": 0.18145833333333333,
+      "relative_range": 0.6812138276239638
+    },
+    {
+      "feature": "md_header",
+      "f_stat": 15.831743252874267,
+      "p_value": 6.022677850699599e-13,
+      "range_across_families": 0.12812500000000002,
+      "relative_range": 1.0574277854195324
+    },
+    {
+      "feature": "uppercase_frac",
+      "f_stat": 6.8864148771380735,
+      "p_value": 1.5522649971986116e-05,
+      "range_across_families": 0.002518635748474919,
+      "relative_range": 0.08960243550605429
+    },
+    {
+      "feature": "mean_sentence_words",
+      "f_stat": 6.822853469858252,
+      "p_value": 1.7472812216629902e-05,
+      "range_across_families": 1.904767895315313,
+      "relative_range": 0.1018576679884497
+    },
+    {
+      "feature": "colon_per_word",
+      "f_stat": 4.299565734592618,
+      "p_value": 0.0017731095704501577,
+      "range_across_families": 0.002606941086520556,
+      "relative_range": 0.15142309947806817
+    },
+    {
+      "feature": "code_fence",
+      "f_stat": 3.153464154986052,
+      "p_value": 0.013341153378326207,
+      "range_across_families": 0.042916666666666686,
+      "relative_range": 0.25121951219512206
+    },
+    {
+      "feature": "mean_word_len",
+      "f_stat": 1.9830599618102784,
+      "p_value": 0.09412894943824235,
+      "range_across_families": 0.5588491346156834,
+      "relative_range": 0.11540030655863025
+    },
+    {
+      "feature": "comma_per_word",
+      "f_stat": 0.8448678647282831,
+      "p_value": 0.4964550805581446,
+      "range_across_families": 0.03715148783286177,
+      "relative_range": 0.5285776896706104
+    }
+  ]
+}

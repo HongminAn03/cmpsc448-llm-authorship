@@ -1,0 +1,17 @@
+data/raw/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+_extracted.txt
+*.pt
+# derived datasets: regenerated deterministically by src/experiments/rq3.py
+data/curated/dataset_rq3.parquet
+data/curated/dataset_rq3_cross.parquet
+data/curated/dataset_rq3_indomain.parquet
+
+# scratch
+report/_p1.txt
+results/_watch.log
+
+# course handout, not ours to redistribute
+Midterm project-1-1.pdf

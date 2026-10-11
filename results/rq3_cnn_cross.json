@@ -1,0 +1,150 @@
+{
+  "config": {
+    "name": "rq3_cnn_cross",
+    "arch": "cnn",
+    "view": "output",
+    "transform": "none",
+    "dataset": "C:\\Users\\hongm\\AI_Lab_Vault\\Project448\\data\\curated\\dataset_rq3_cross.parquet",
+    "split_col": "split",
+    "seed": 448,
+    "epochs": 6,
+    "batch_size": 64,
+    "lr": 0.001,
+    "vocab_size": 30000,
+    "patience": 2,
+    "max_train": null,
+    "max_len_override": null,
+    "notes": "RQ3 cross evaluation",
+    "tags": {}
+  },
+  "vocab_size": 30000,
+  "params": 4038917,
+  "n_train": 19906,
+  "n_val": 2538,
+  "n_test": 2380,
+  "best_epoch": 6,
+  "val_macro_f1": 0.5011971937903279,
+  "test_accuracy": 0.44915966386554623,
+  "test_macro_f1": 0.45070130724709234,
+  "per_class": {
+    "GPT": {
+      "precision": 0.3875802997858672,
+      "recall": 0.3802521008403361,
+      "f1-score": 0.383881230116649,
+      "support": 476.0
+    },
+    "Claude": {
+      "precision": 0.8081896551724138,
+      "recall": 0.7878151260504201,
+      "f1-score": 0.7978723404255319,
+      "support": 476.0
+    },
+    "Llama": {
+      "precision": 0.49282296650717705,
+      "recall": 0.4327731092436975,
+      "f1-score": 0.4608501118568233,
+      "support": 476.0
+    },
+    "Mistral": {
+      "precision": 0.3010204081632653,
+      "recall": 0.24789915966386555,
+      "f1-score": 0.271889400921659,
+      "support": 476.0
+    },
+    "Vicuna": {
+      "precision": 0.29577464788732394,
+      "recall": 0.39705882352941174,
+      "f1-score": 0.33901345291479823,
+      "support": 476.0
+    },
+    "accuracy": 0.44915966386554623,
+    "macro avg": {
+      "precision": 0.4570775955032095,
+      "recall": 0.44915966386554623,
+      "f1-score": 0.45070130724709234,
+      "support": 2380.0
+    },
+    "weighted avg": {
+      "precision": 0.4570775955032095,
+      "recall": 0.44915966386554623,
+      "f1-score": 0.4507013072470923,
+      "support": 2380.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      181,
+      21,
+      41,
+      87,
+      146
+    ],
+    [
+      32,
+      375,
+      15,
+      21,
+      33
+    ],
+    [
+      51,
+      17,
+      206,
+      71,
+      131
+    ],
+    [
+      101,
+      23,
+      94,
+      118,
+      140
+    ],
+    [
+      102,
+      28,
+      62,
+      95,
+      189
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.571899135907491,
+      "val_acc": 0.44720252167060676,
+      "val_macro_f1": 0.3713741463720288
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.3249428214935155,
+      "val_acc": 0.48187549251379036,
+      "val_macro_f1": 0.4581915486979834
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.2402077301954613,
+      "val_acc": 0.4743892828999212,
+      "val_macro_f1": 0.447569968842909
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.17174679833727,
+      "val_acc": 0.4913317572892041,
+      "val_macro_f1": 0.4799508525809263
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.1074093106465461,
+      "val_acc": 0.5063041765169425,
+      "val_macro_f1": 0.4987006163642517
+    },
+    {
+      "epoch": 6,
+      "train_loss": 1.0311271731670086,
+      "val_acc": 0.5043341213553979,
+      "val_macro_f1": 0.5011971937903279
+    }
+  ],
+  "seconds": 228.3
+}
