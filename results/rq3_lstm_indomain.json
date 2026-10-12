@@ -1,0 +1,150 @@
+{
+  "config": {
+    "name": "rq3_lstm_indomain",
+    "arch": "lstm",
+    "view": "output",
+    "transform": "none",
+    "dataset": "C:\\Users\\hongm\\AI_Lab_Vault\\Project448\\data\\curated\\dataset_rq3_indomain.parquet",
+    "split_col": "split",
+    "seed": 448,
+    "epochs": 6,
+    "batch_size": 64,
+    "lr": 0.001,
+    "vocab_size": 30000,
+    "patience": 2,
+    "max_train": null,
+    "max_len_override": null,
+    "notes": "RQ3 indomain evaluation",
+    "tags": {}
+  },
+  "vocab_size": 30000,
+  "params": 4014533,
+  "n_train": 19906,
+  "n_val": 2538,
+  "n_test": 2380,
+  "best_epoch": 6,
+  "val_macro_f1": 0.5112925378421379,
+  "test_accuracy": 0.5079831932773109,
+  "test_macro_f1": 0.5025963131483305,
+  "per_class": {
+    "GPT": {
+      "precision": 0.4177449168207024,
+      "recall": 0.47478991596638653,
+      "f1-score": 0.4444444444444444,
+      "support": 476.0
+    },
+    "Claude": {
+      "precision": 0.9024390243902439,
+      "recall": 0.8550420168067226,
+      "f1-score": 0.8781014023732471,
+      "support": 476.0
+    },
+    "Llama": {
+      "precision": 0.4675118858954041,
+      "recall": 0.6197478991596639,
+      "f1-score": 0.5329719963866305,
+      "support": 476.0
+    },
+    "Mistral": {
+      "precision": 0.33191489361702126,
+      "recall": 0.3277310924369748,
+      "f1-score": 0.3298097251585624,
+      "support": 476.0
+    },
+    "Vicuna": {
+      "precision": 0.4355400696864111,
+      "recall": 0.26260504201680673,
+      "f1-score": 0.32765399737876805,
+      "support": 476.0
+    },
+    "accuracy": 0.5079831932773109,
+    "macro avg": {
+      "precision": 0.5110301580819566,
+      "recall": 0.5079831932773109,
+      "f1-score": 0.5025963131483305,
+      "support": 2380.0
+    },
+    "weighted avg": {
+      "precision": 0.5110301580819566,
+      "recall": 0.5079831932773109,
+      "f1-score": 0.5025963131483305,
+      "support": 2380.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      226,
+      13,
+      71,
+      113,
+      53
+    ],
+    [
+      41,
+      407,
+      12,
+      12,
+      4
+    ],
+    [
+      54,
+      9,
+      295,
+      77,
+      41
+    ],
+    [
+      114,
+      15,
+      127,
+      156,
+      64
+    ],
+    [
+      106,
+      7,
+      126,
+      112,
+      125
+    ]
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.5104545041536674,
+      "val_acc": 0.42671394799054374,
+      "val_macro_f1": 0.3945528707257796
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.2553916804683514,
+      "val_acc": 0.475177304964539,
+      "val_macro_f1": 0.45135498701900134
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.1519881463967836,
+      "val_acc": 0.4791174152876281,
+      "val_macro_f1": 0.4626562845601308
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0769397205649278,
+      "val_acc": 0.5070921985815603,
+      "val_macro_f1": 0.5077167974420249
+    },
+    {
+      "epoch": 5,
+      "train_loss": 1.0090960665391042,
+      "val_acc": 0.49487785657998423,
+      "val_macro_f1": 0.4858902776187971
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.9463783198824296,
+      "val_acc": 0.5157604412923562,
+      "val_macro_f1": 0.5112925378421379
+    }
+  ],
+  "seconds": 414.4
+}

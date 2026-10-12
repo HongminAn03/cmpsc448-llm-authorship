@@ -9,6 +9,7 @@ import base64
 import glob
 import json
 import os
+import re
 import statistics
 import subprocess
 import sys
@@ -83,8 +84,12 @@ def img(name: str, caption: str) -> str:
     if not os.path.exists(path):
         return f'<p class="missing">[figure missing: {name}]</p>'
     b64 = base64.b64encode(open(path, "rb").read()).decode()
-    return (f'<figure><img src="data:image/png;base64,{b64}" alt="{caption}">'
-            f'<figcaption>{caption}</figcaption></figure>')
+    # captions carry markup, which would terminate the alt attribute early and
+    # leak the remainder into the page as stray text
+    alt = re.sub(r"<[^>]+>", "", caption).replace("&nbsp;", " ")
+    alt = alt.replace('"', "'").replace("&mdash;", "-").strip()
+    return (f'<figure><img src="data:image/png;base64,{b64}" alt="{alt}">'
+            f"<figcaption>{caption}</figcaption></figure>")
 
 
 def table(headers: list[str], rows: list[list[str]], cls: str = "") -> str:
@@ -227,9 +232,11 @@ def build_html() -> str:
       f"{pct(tf_o)}, {tfidf_verdict} the stronger of the two networks and "
       "ahead of the weaker one, so neither architecture earns its complexity "
       "at this data scale. Third, "
-      "ablations show the signal is distributed rather than located in any "
-      "single cue: removing markdown, equalising response length, or even "
-      "destroying word order each leaves most of the accuracy intact.</p>")
+      "ablations locate the signal where a reader would not expect it. "
+      "Masking every content word costs almost nothing, while shuffling word "
+      "order is the most damaging intervention tested, so what identifies a "
+      "family is how it arranges ordinary words rather than which topics or "
+      "formatting it favours.</p>")
     A("</div>")
 
     # ------------------------------------------- 1. problem + dataset
@@ -793,38 +800,77 @@ def build_html() -> str:
             parts.append(f"destroying word order costs {d_shuf*100:.1f}")
         if d_fw is not None:
             parts.append(f"masking content words costs {d_fw*100:.1f}")
-        if parts:
-            A("<p>" + "; ".join(parts).capitalize() + ".</p>")
-        A("<p>Read together, these say the signal is <strong>redundant and "
-          "distributed</strong>, which is the central analytical finding of the "
-          "project. No single cue is load-bearing: the model is not simply a "
-          "markdown detector, nor a length detector. Three specific "
-          "conclusions follow:</p>")
+        A("<p>Every ablation stays far above the 0.200 floor, so the first "
+          "conclusion is that the signal is <strong>redundant and "
+          "distributed</strong>: no single cue is load-bearing, and removing "
+          "one leaves the model able to fall back on others. The ordering of "
+          "the drops is more surprising, and it overturns the reading that "
+          "&sect;4.2 invites.</p>")
         A("<ul>")
+        if d_md is not None:
+            A(f"<li><strong>Formatting is not what the model depends on, "
+              f"despite being the loudest descriptive difference.</strong> "
+              f"Stripping every header, bullet, bold span, code fence and line "
+              f"break costs only {d_md*100:.1f} points "
+              f"({num(base)} to {num(abl['abl_cnn_no_markdown']['accuracy'])}). "
+              "Claude's markdown habit is real and highly significant as a "
+              "<em>statistic</em>, but the classifier is not a markdown "
+              "detector; the same families remain separable in plain "
+              "text.</li>")
         if d_shuf is not None:
-            A(f"<li><strong>Most of the signal is lexical, not syntactic.</strong> "
-              f"Shuffling word order destroys all syntax and still leaves "
-              f"{num(abl['abl_cnn_shuffled']['accuracy'])} accuracy, within "
-              f"{abs(d_shuf)*100:.1f} points of the baseline. What the CNN "
-              "mainly exploits is <em>which words and symbols appear</em>, not "
-              "how they are arranged&nbsp;&mdash;&nbsp;consistent with "
-              "max-pooled convolutions, which are close to a learned "
-              "bag-of-n-grams.</li>")
+            A(f"<li><strong>Word order matters most.</strong> Shuffling the "
+              f"words inside each response&nbsp;&mdash;&nbsp;which preserves "
+              f"the bag of words exactly&nbsp;&mdash;&nbsp;is the single most "
+              f"damaging intervention, costing {d_shuf*100:.1f} points. That "
+              "is the expected failure mode for this architecture: the CNN's "
+              "width-3-to-5 convolutions are n-gram detectors, and shuffling "
+              "destroys every local n-gram, leaving only unigram evidence. "
+              "Phrasing, not vocabulary, is where much of the fingerprint "
+              "lives.</li>")
         if d_fw is not None:
-            A(f"<li><strong>Grammatical habit alone is identifying.</strong> "
-              f"With every content word masked, accuracy is still "
-              f"{num(abl['abl_cnn_function_words']['accuracy'])}, far above "
-              "chance. Function-word distributions are the classical signal of "
-              "human authorship attribution, and they work on models too.</li>")
-        if d_len is not None and d_md is not None:
-            A(f"<li><strong>Formatting and length matter but are not "
-              f"decisive.</strong> Each removal costs only a few points, and "
-              "because the features are correlated with each other, deleting "
-              "one leaves the others available as substitutes.</li>")
+            A(f"<li><strong>The fingerprint is grammatical, not topical.</strong> "
+              f"Masking <em>every content word</em>&nbsp;&mdash;&nbsp;leaving "
+              f"only function words and punctuation in their original "
+              f"positions&nbsp;&mdash;&nbsp;costs just {d_fw*100:.1f} points, "
+              f"retaining {num(abl['abl_cnn_function_words']['accuracy'])} "
+              "accuracy. Nearly all of the signal survives the deletion of "
+              "subject matter. Function-word patterning is the classical basis "
+              "of human authorship attribution, and it transfers to machine "
+              "authors.</li>")
         A("</ul>")
-        A("<p>The BiLSTM controls move in the same direction as the CNN under "
-          "the same ablations, so the attribution is a property of the signal "
-          "rather than of one architecture.</p>")
+        A("<p>Taken together, the last two points reinforce each other: what "
+          "identifies a model family is <em>how it arranges ordinary "
+          "words</em>. Destroy the arrangement and performance falls sharply; "
+          "delete the subject matter but keep the arrangement and performance "
+          "barely moves.</p>")
+        if d_len is not None and win:
+            w40 = win.get("40", {}).get("accuracy")
+            w80 = win.get("80", {}).get("accuracy")
+            if w40 and w80:
+                interp = w40 + (w80 - w40) * 0.5   # linear estimate at 60 tokens
+                excess = interp - abl["abl_cnn_fixed_length"]["accuracy"]
+                A("<h4>Separating response length from response content</h4>")
+                A(f"<p>The length-equalising ablation costs {d_len*100:.1f} "
+                  "points, but that figure is confounded: cutting every reply "
+                  "to 60 tokens removes the length cue <em>and</em> most of "
+                  "the text. The window study in &sect;4.4 separates the two. "
+                  f"A plain 60-token window, with length information intact, "
+                  f"interpolates to about {num(interp)} accuracy "
+                  f"({num(w40)} at 40 tokens, {num(w80)} at 80). The "
+                  f"length-equalised run reaches "
+                  f"{num(abl['abl_cnn_fixed_length']['accuracy'])}, only "
+                  f"{excess*100:.1f} points lower. Response length as such is "
+                  "therefore worth roughly a point or two, not the four points "
+                  "the raw ablation suggests&nbsp;&mdash;&nbsp;most of that "
+                  "drop is simply having less text to read.</p>")
+        lstm_md = abl.get("abl_lstm_no_markdown")
+        lstm_len = abl.get("abl_lstm_fixed_length")
+        if lstm_md and lstm_len:
+            A("<p>The BiLSTM controls move in the same direction and by "
+              f"similar margins ({lstm_md.get('delta_accuracy', 0)*100:+.1f} "
+              f"and {lstm_len.get('delta_accuracy', 0)*100:+.1f} points), so "
+              "the attribution describes the signal rather than one "
+              "architecture's quirks.</p>")
 
     A("<h3>4.4 What the truncation window costs</h3>")
     if win:
