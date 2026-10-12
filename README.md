@@ -21,20 +21,35 @@ matrices.
 | What the model sees | CNN | BiLSTM | TF-IDF + logistic regression |
 |---|---|---|---|
 | prompt only | 0.204 | 0.218 | 0.217 |
-| response only | 0.495 | see report | 0.514 |
-| prompt + response | 0.497 | see report | 0.500 |
+| response only | **0.495** | **0.511** | **0.514** |
+| prompt + response | 0.497 | 0.500 | 0.500 |
 
-Three findings drive the report:
+Across seeds the response-only figures are 0.476 +/- 0.019 (CNN, 3 seeds) and
+0.513 +/- 0.003 (BiLSTM, 2 seeds).
+
+Four findings drive the report:
 
 1. **Model families are identifiable from their responses** at roughly 2.5x
-   chance, but not trivially so.
-2. **The prompt carries essentially no authorship signal.** Prompt-only
-   classification sits at chance, and adding the prompt to the response does
-   not help. This is a consequence of how the data is built: in a Chatbot
-   Arena battle the same prompt is answered by two different models, so the
-   prompt cannot predict the author.
-3. **A classical stylometry baseline is competitive with, and here slightly
-   better than, the from-scratch neural models** at this data scale.
+   chance, but far from perfectly. Claude is recovered 87% of the time;
+   Mistral only 22%.
+2. **The prompt carries no authorship signal.** Prompt-only classification
+   sits at chance and adding the prompt to the response changes nothing. This
+   follows from how the data is built: in a Chatbot Arena battle the same
+   prompt is answered by two different models, so the prompt cannot predict
+   the author. A strong prompt-only score would be evidence of a leaky
+   corpus, not of a fingerprint.
+3. **A classical stylometry baseline matches the neural models.** TF-IDF with
+   character n-grams ties the BiLSTM and beats the CNN, so neither network
+   earns its complexity at this data scale.
+4. **The fingerprint is grammatical, not topical.** Masking every content
+   word costs just 2.8 points, while shuffling word order costs 8.6 and
+   removing all markdown costs 1.3. What identifies a family is how it
+   arranges ordinary words.
+
+Extra-credit questions: fingerprints partly survive a change of task domain
+(CNN 0.511 to 0.449 on unseen creative writing and roleplay; BiLSTM degrades
+less, 0.508 to 0.480), and the stylistic profile of each family is measured
+and ranked by ANOVA F in the report.
 
 ## Data
 
